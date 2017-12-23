@@ -1,0 +1,22 @@
+digraph lri {
+    rankdir=LR;
+    size="8,5"
+    
+    node [shape = doublecircle] l0;
+    node [shape = circle, style=dashed] lv;
+    node [shape = point] __init;
+    
+    __init -> l0;
+    l0 -> l0 [label="(GS or GP) and v_grp < 0"];
+    l0 -> l0 [label="(GS or GP) and v_grp >= 0; v_lri = 0, v_grp = 0"];
+    
+    l0 -> lv [label="v_lri > 5"];
+    lv -> lv [label="true"];
+    
+    //__alphabet [GS, GP]
+    //__clocks [v_lri, v_grp]
+    //__priority 5
+    
+}
+
+
