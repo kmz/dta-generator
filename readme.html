@@ -70,32 +70,7 @@ Cyber-Physical System architecture of a bidirectional enforcer.</p><p>The projec
 On some systems, this command will not work. Try the following commands instead:<br>
 <code>python -m pip install graphviz</code><br>
 <code>python3 -m pip install graphviz</code></p><p>Graphviz requires additional libraries, they are installed with the following command:<br>
-<code>sudo apt-get install graphviz</code></p><h4 id="non-essential"><a class="anchor hidden-xs" href="#non-essential" title="non-essential"><span class="octicon octicon-link"></span></a>Non-essential</h4><p>Used for implementation on the Raspberry Pi 3.</p><table>
-<thead>
-<tr>
-<th>Program Name</th>
-<th>Version</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>sdcardformatter</td>
-<td>5.0.0</td>
-<td>Formats an SD card to be bootable.</td>
-</tr>
-<tr>
-<td>Raspbian Stretch</td>
-<td>4.9</td>
-<td>Raspberry Pi OS.</td>
-</tr>
-<tr>
-<td>win32diskimager</td>
-<td>1.0.0</td>
-<td>Burns the Raspbian OS onto the bootable SD card.</td>
-</tr>
-</tbody>
-</table><h1 id="usage"><a class="anchor hidden-xs" href="#usage" title="usage"><span class="octicon octicon-link"></span></a>Usage</h1><h2 id="file-structure"><a class="anchor hidden-xs" href="#file-structure" title="file-structure"><span class="octicon octicon-link"></span></a>File Structure</h2><ul>
+<code>sudo apt-get install graphviz</code></p><h1 id="usage"><a class="anchor hidden-xs" href="#usage" title="usage"><span class="octicon octicon-link"></span></a>Usage</h1><h2 id="file-structure"><a class="anchor hidden-xs" href="#file-structure" title="file-structure"><span class="octicon octicon-link"></span></a>File Structure</h2><ul>
 <li>Code
 <ul>
 <li>C - heart and pacemaker models</li>
@@ -151,38 +126,7 @@ On some systems, this command will not work. Try the following commands instead:
 <li>The clocks must be declared using the form <code>//__clocks [CLOCKS]</code> where <code>CLOCKS</code> is a comma-delimited list of clocks used in transition conditions.</li>
 <li>The priority must be declared using the form <code>//__priority PRIORITY</code> where <code>PRIORITY</code> is some positive integer.</li>
 <li>The file must be a directed graph <code>digraph</code>.</li>
-</ol><p>There are no more requirements for C code generation. However, to generate a conventional visualization, users may wish to specify other attributes: for example, using the point shape attribute for <code>__init</code> and the circle shape attribute for all accepting locations.</p><p>This generated code can then be ran in the system by linking the files together in a makefile, as shown in <code>Code/C/Heart_Pacemaker/Exhibition/Makefile</code></p><p>To run the heart, enforcer, and pacemaker in C, navigate to <code>/Code/C/Heart_Pacemaker/Exhibition/Makefile/</code>, and type <code>make</code>.</p><h2 id="python-enforcer"><a class="anchor hidden-xs" href="#python-enforcer" title="python-enforcer"><span class="octicon octicon-link"></span></a>Python Enforcer</h2><p>The development system is done in Python and was extended from Dr. Srinivas Pinisetty’s <a href="https://github.com/SrinivasPinisetty/Runtime-Enforcement-of-Reactive-Systems-Bi-directional-/tree/master/SyncRE-Safety-Python" target="_blank">python implementation</a>.<br>
-These files are located inside <code>/Code/Python/Enforcer</code>. The main Python file is <code>tests/enforcer_chain_io.py</code>, and contains the main function, as well as property generation. <code>tests/Examples.py</code> shows the layout for specifying new properties to run in Python. All that is required is generating the appropriate variables to run the file.</p><p>The enforcement function is inside the <code>SyncEnforcer.py</code> file, with automata defintions in <code>Automata.py</code></p><h2 id="continuation"><a class="anchor hidden-xs" href="#continuation" title="continuation"><span class="octicon octicon-link"></span></a>Continuation</h2><h3 id="future-work"><a class="anchor hidden-xs" href="#future-work" title="future-work"><span class="octicon octicon-link"></span></a>Future Work</h3><ol>
-<li>Changing policy groups into a heirarchial structure, allowing more compelx behaviour.</li>
-<li>Generation of VHDL for power optimisation, security.</li>
-<li>Communication via channels or broadcasting</li>
-<li>Linking generated property files to the enforcer code automatically.</li>
-</ol><h3 id="recommended-readings"><a class="anchor hidden-xs" href="#recommended-readings" title="recommended-readings"><span class="octicon octicon-link"></span></a>Recommended Readings</h3><p>With this compendium are key papers that were helpful during the course of this project in the <code>/Papers</code> folder.</p><ol>
-<li>
-<p><em>Runtime Enforcement of Cyber-Physical Systems – A Pacemaker Case Study. S. Pinisetty, P. Roop et al.</em><br>
-This paper was what the work was based upon, and was the working title before submission to EMSOFT '17. This is essential to understand the system.</p>
-</li>
-<li>
-<p><em>Towards the Emulation of the Cardiac Conduction<br>
-System for Pacemaker Testing. Eugene Yip et al.</em><br>
-Background of the heart pacemaker systems, this work lead towards the 33 node heart model used in the system.</p>
-</li>
-<li>
-<p><em>Modular code generation for emulating the<br>
-electrical conduction system of the human heart. N. Allen et al.</em><br>
-Paper about the generation of the heart into C code as used in the system.</p>
-</li>
-</ol><h2 id="questions"><a class="anchor hidden-xs" href="#questions" title="questions"><span class="octicon octicon-link"></span></a>Questions</h2><p>Email Bevan or Kalman on <a href="mailto:bkra161@aucklanduni.ac.nz" target="_blank">bkra161@aucklanduni.ac.nz</a> or <a href="mailto:kzam437@aucklanduni.ac.nz" target="_blank">kzam437@aucklanduni.ac.nz</a> for assistance if required.</p></div>
-    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
-        <div class="pull-right dropdown">
-            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
-                <i class="fa fa-bars"></i>
-            </a>
-            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
-                <div class="toc"><ul class="nav"><li><a href="#project-24-runtime-enforcement-for-cyber-physical-systems-a-pacemaker-case-study">Project 24: Runtime Enforcement for Cyber-Physical Systems. A Pacemaker Case Study</a><ul class="nav"><li><a href="#overview">Overview</a><ul class="nav"><li><a href="#background">Background</a></li><li><a href="#implementation">Implementation</a></li><li><a href="#required-tools">Required Tools</a></li></ul></li></ul></li><li class=""><a href="#usage">Usage</a><ul class="nav"><li><a href="#file-structure">File Structure</a></li><li class=""><a href="#toolchain">Toolchain</a></li><li><a href="#python-enforcer">Python Enforcer</a></li><li><a href="#continuation">Continuation</a><ul class="nav"><li><a href="#future-work">Future Work</a></li><li><a href="#recommended-readings">Recommended Readings</a></li></ul></li><li><a href="#questions">Questions</a></li></ul></li></ul></div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
-            </ul>
-        </div>
-    </div>
+</ol><p>There are no more requirements for C code generation. However, to generate a conventional visualization, users may wish to specify other attributes: for example, using the point shape attribute for <code>__init</code> and the circle shape attribute for all accepting locations.</p>
     <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;"  >
         <div class="toc"><ul class="nav"><li><a href="#project-24-runtime-enforcement-for-cyber-physical-systems-a-pacemaker-case-study">Project 24: Runtime Enforcement for Cyber-Physical Systems. A Pacemaker Case Study</a><ul class="nav"><li><a href="#overview">Overview</a><ul class="nav"><li><a href="#background">Background</a></li><li><a href="#implementation">Implementation</a></li><li><a href="#required-tools">Required Tools</a></li></ul></li></ul></li><li class=""><a href="#usage">Usage</a><ul class="nav"><li><a href="#file-structure">File Structure</a></li><li class=""><a href="#toolchain">Toolchain</a></li><li><a href="#python-enforcer">Python Enforcer</a></li><li><a href="#continuation">Continuation</a><ul class="nav"><li><a href="#future-work">Future Work</a></li><li><a href="#recommended-readings">Recommended Readings</a></li></ul></li><li><a href="#questions">Questions</a></li></ul></li></ul></div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
     </div>
